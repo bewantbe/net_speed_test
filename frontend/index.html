@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Speed Test</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Network Speed Test</h1>
+            <p class="subtitle">Test your network performance with precision</p>
+        </header>
+
+        <div class="controls">
+            <div class="test-size-selector">
+                <label for="testSize">Test Size:</label>
+                <select id="testSize">
+                    <option value="10">10 MB</option>
+                    <option value="100" selected>100 MB</option>
+                    <option value="1000">1000 MB (1 GB)</option>
+                </select>
+            </div>
+            
+            <button id="startTest" class="test-button">
+                <span class="button-text">Start Speed Test</span>
+                <span class="button-loader" style="display: none;">
+                    <div class="spinner"></div>
+                    Testing...
+                </span>
+            </button>
+        </div>
+
+        <div class="test-results">
+            <!-- Download Speed Test -->
+            <div class="test-card" id="downloadCard">
+                <div class="test-header">
+                    <h3>📥 Download Speed</h3>
+                    <div class="test-status" id="downloadStatus">Ready</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="downloadProgress"></div>
+                    </div>
+                    <div class="progress-text" id="downloadProgressText">0%</div>
+                </div>
+                <div class="test-result" id="downloadResult">
+                    <div class="speed-value">-- Mbps</div>
+                    <div class="speed-details"></div>
+                </div>
+            </div>
+
+            <!-- Upload Speed Test -->
+            <div class="test-card" id="uploadCard">
+                <div class="test-header">
+                    <h3>📤 Upload Speed</h3>
+                    <div class="test-status" id="uploadStatus">Ready</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="uploadProgress"></div>
+                    </div>
+                    <div class="progress-text" id="uploadProgressText">0%</div>
+                </div>
+                <div class="test-result" id="uploadResult">
+                    <div class="speed-value">-- Mbps</div>
+                    <div class="speed-details"></div>
+                </div>
+            </div>
+
+            <!-- Latency Test -->
+            <div class="test-card" id="latencyCard">
+                <div class="test-header">
+                    <h3>⚡ Network Latency</h3>
+                    <div class="test-status" id="latencyStatus">Ready</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="latencyProgress"></div>
+                    </div>
+                    <div class="progress-text" id="latencyProgressText">0%</div>
+                </div>
+                <div class="test-result" id="latencyResult">
+                    <div class="speed-value">-- ms</div>
+                    <div class="speed-details"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-card" id="summaryCard" style="display: none;">
+            <h3>📊 Test Summary</h3>
+            <div class="summary-content">
+                <div class="summary-item">
+                    <span class="summary-label">Download:</span>
+                    <span class="summary-value" id="summaryDownload">-- Mbps</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Upload:</span>
+                    <span class="summary-value" id="summaryUpload">-- Mbps</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Latency:</span>
+                    <span class="summary-value" id="summaryLatency">-- ms</span>
+                </div>
+            </div>
+            <div class="overall-rating" id="overallRating">
+                <div class="rating-text">Overall Performance: <span id="ratingValue">--</span></div>
+                <div class="rating-description" id="ratingDescription">Complete all tests to see rating</div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="server-info" id="serverInfo">
+                <p>Loading server information...</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
