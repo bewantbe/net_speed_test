@@ -1,3 +1,14 @@
+# Network Speed Test Server
+
+#TODO:
+#Add more tests:
+#  IOPS
+#
+#Add history log:
+#  Show log of last 10 tests.
+#
+#Add curve show:
+
 import asyncio
 import json
 import time

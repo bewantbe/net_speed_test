@@ -92,13 +92,13 @@ class SpeedTestEngine:
         mbps = bits_transferred / (elapsed_seconds * 1_000_000)
         return round(mbps, 2)
     
-    def format_bytes(self, bytes_count: int) -> str:
+    def format_bytes(self, bytes_count: int|float) -> str:
         """Format bytes in human readable format"""
-        for unit in ['B', 'KB', 'MB', 'GB']:
+        for unit in ['B', 'KiB', 'MiB', 'GiB']:
             if bytes_count < 1024.0:
                 return f"{bytes_count:.2f} {unit}"
             bytes_count /= 1024.0
-        return f"{bytes_count:.2f} TB"
+        return f"{bytes_count:.2f} TiB"
     
     def get_performance_rating(self, speed_mbps: float, test_type: str) -> Dict[str, Any]:
         """Get performance rating and recommendations"""
