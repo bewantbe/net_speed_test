@@ -1,0 +1,53 @@
+
+
+
+
+G is GiB
+
+
+# raw file system speed
+# cat
+cat /dev/zero | pipemeter > /dev/null
+2.62G/s
+
+# file
+pipemeter --file /dev/zero --autooff -b 128k > /dev/null
+39.14G/s
+
+# net
+nc -l -p $port > /dev/null &
+cat /dev/zero | pipemeter --autooff -b $size | nc localhost $port
+
+	--file		cat		nc localhost	iperf3
+4k	3.12G/s		1.99G/s		1.24G/s		
+8k	5.94G/s		2.61G/s		1.56G/s		
+16k	11.20G/s	3.03G/s		1.64G/s		
+32k	19.47G/s	3.26G/s		1.63G/s		
+64k	28.22G/s	3.09G/s		1.62G/s		4.56
+128k	38.79G/s	3.11G/s		1.61G/s		
+256k	44.19G/s	3.14G/s		1.63G/s		
+512k	50.00G/s	3.06G/s		1.61G/s		
+1M	40.33G/s	3.06G/s		1.61G/s		
+2M	30.73G/s	3.05G/s		1.60G/s		
+							4.91
+
+pipebench
+2.62 GB/s
+
+
+
+
+
+http://172.20.175.131:8000/
+2650.4 Mbps
+12234.0 Mbps
+3.56 ms
+
+
+
+2791.6 Mbps
+13335.1 Mbps
+3.45 ms
+
+
+
